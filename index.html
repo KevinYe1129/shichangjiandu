@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市场监督电子数据存证平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>市场监督电子数据存证平台</h1>
+        </header>
+        <main>
+            <div class="search-box">
+                <h2>商品信息查询</h2>
+                <div class="input-group">
+                    <input type="text" id="product-code" placeholder="请输入商品编码" autocomplete="off">
+                    <button id="search-btn">查询</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>© 2023 市场监督电子数据存证平台 版权所有</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const productCode = document.getElementById('product-code').value.trim();
+            if (productCode === '00153982') {
+                window.location.href = 'result.html';
+            } else if (productCode === '') {
+                alert('请输入商品编码');
+            } else {
+                alert('未找到相关商品信息');
+            }
+        });
+
+        document.getElementById('product-code').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('search-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>
